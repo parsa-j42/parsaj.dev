@@ -1,0 +1,45 @@
+:root {
+  --ink: #ffffff;
+  --space: #060611;
+  --grid: rgba(140, 170, 230, 0.55);
+  --grass-1: #6abe4a;
+  --grass-2: #58a83c;
+  --grass-3: #3f8a2c;
+  --sky-1: #92d6ff;
+  --sky-2: #c8ecff;
+  --dirt-1: #a67149;
+  --dirt-2: #7a4f30;
+  --wood-1: #c79360;
+  --wood-2: #7a4a26;
+  --wood-3: #4f2e15;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--space);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  color: var(--ink);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  position: fixed;
+  inset: 0;
+}
+
+/* used by anything that wants pixel-art crispness */
+.pixel,
+.pixel * {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
