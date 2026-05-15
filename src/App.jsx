@@ -21,10 +21,12 @@ import PortfolioScene from './components/portfolio/portfolio-scene.jsx';
 import { SOCIALS } from './data/socials.js';
 import { VISUALS } from './config.js';
 import { FONTS } from './theme.js';
+import useIsMobile from './hooks/use-is-mobile.js';
 
 const { useState, useEffect, useCallback } = React;
 
 export default function App() {
+  const isMobile = useIsMobile();
   const [phase, setPhase] = useState('intro');
   const [progress, setProgress] = useState(0);
 
@@ -47,9 +49,14 @@ export default function App() {
     return () => clearTimeout(t);
   }, []);
 
-  // pinned header slot positions (the rising text/links land here)
-  const nameTarget  = { x: 36 + 130, y: 28 + 22 };
-  const linksTarget = { x: window.innerWidth - 36 - 280, y: 32 + 20 };
+  // Pinned header slot positions (the rising text/links land here). Mobile
+  // uses the compact header geometry from FixedHeader so the rise lands flush.
+  const nameTarget  = isMobile
+    ? { x: 14 + 75, y: 14 + 18 }
+    : { x: 36 + 130, y: 28 + 22 };
+  const linksTarget = isMobile
+    ? { x: window.innerWidth - 14 - 80, y: 16 + 17 }
+    : { x: window.innerWidth - 36 - 280, y: 32 + 20 };
 
   const onNameReveal  = useCallback((pos) => setRisingName({ from: { x: pos.x, y: pos.y - 40 } }), []);
   const onLinksReveal = useCallback((pos) => setRisingLinks({ from: { x: pos.x, y: pos.y - 40 } }), []);
@@ -133,7 +140,7 @@ export default function App() {
           duration={1300}
           onArrived={() => setNamePinned(true)}
         >
-          <RisingNameLabel />
+          <RisingNameLabel isMobile={isMobile} />
         </RisingElement>
       )}
 
@@ -144,7 +151,7 @@ export default function App() {
           duration={1300}
           onArrived={() => setLinksPinned(true)}
         >
-          <RisingLinksRow />
+          <RisingLinksRow isMobile={isMobile} />
         </RisingElement>
       )}
 
@@ -171,7 +178,7 @@ export default function App() {
 
 // ── Rising-text payloads - only used here, kept inline ────────────────────
 
-function RisingNameLabel() {
+function RisingNameLabel({ isMobile }) {
   return (
     <div
       style={{
@@ -181,11 +188,11 @@ function RisingNameLabel() {
         textShadow: '0 0 16px rgba(150,200,255,0.6), 0 2px 12px rgba(0,0,0,0.8)',
       }}
     >
-      <div style={{ fontSize: 26, letterSpacing: '1px' }}>PARSA JAFARI</div>
+      <div style={{ fontSize: isMobile ? 18 : 26, letterSpacing: '1px' }}>PARSA JAFARI</div>
       <div
         style={{
-          marginTop: 10,
-          fontSize: 12,
+          marginTop: isMobile ? 6 : 10,
+          fontSize: isMobile ? 9 : 12,
           fontFamily: FONTS.mono,
           letterSpacing: '0.3em',
           color: '#c8d8ff',
@@ -197,11 +204,32 @@ function RisingNameLabel() {
   );
 }
 
-function RisingLinksRow() {
+function RisingLinksRow({ isMobile }) {
   return (
-    <div style={{ display: 'flex', gap: 10, color: '#fff' }}>
+    <div style={{ display: 'flex', gap: isMobile ? 6 : 10, color: '#fff' }}>
       {SOCIALS.map((s) => {
         const Ic = s.icon;
+        // On mobile we preview the same icon-only square that pins in the header.
+        if (isMobile) {
+          return (
+            <div
+              key={s.id}
+              style={{
+                width: 34,
+                height: 34,
+                background: 'rgba(15,20,40,0.55)',
+                border: '1px solid rgba(180,200,240,0.4)',
+                borderRadius: 8,
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 18px rgba(150,200,255,0.4)',
+              }}
+            >
+              <Ic />
+            </div>
+          );
+        }
         return (
           <div
             key={s.id}

@@ -19,19 +19,30 @@ const FRAMES = {
   plaque:    { head: '#5a4a2a', body: '#f4ebd1', shadow: '0 8px 0 #2e2410, 0 12px 24px rgba(0,0,0,0.25)', border: '3px solid #2e2410' },
 };
 
-export function ProjectPost({ project }) {
+// Width metrics. The mobile vignettes hand `compact` so a billboard plus its
+// expanded panel still fit comfortably inside ~360px viewports. The
+// `expandedPanel` value is the maxHeight cap on the expand animation; it must
+// be at least as tall as the description text wraps in the given width,
+// otherwise the panel's `overflow: hidden` clips the buttons.
+const SIZES = {
+  full:    { width: 260, expanded: 360, spacer: 230, postH: 64, expandedPanel: 240 },
+  compact: { width: 210, expanded: 290, spacer: 200, postH: 54, expandedPanel: 420 },
+};
+
+export function ProjectPost({ project, compact }) {
+  const S = compact ? SIZES.compact : SIZES.full;
   return (
     <div
       style={{
         position: 'relative',
-        width: 260,
+        width: S.width,
         transform: `rotate(${project.rotate}deg)`,
         transformOrigin: 'top center',
         pointerEvents: 'none',
       }}
     >
       {/* spacer so the post hangs below the sign's bounding box */}
-      <div style={{ height: 230, visibility: 'hidden' }} />
+      <div style={{ height: S.spacer, visibility: 'hidden' }} />
       <div
         style={{
           position: 'absolute',
@@ -39,7 +50,7 @@ export function ProjectPost({ project }) {
           top: '92%',
           transform: 'translateX(-50%)',
           width: 14,
-          height: 64,
+          height: S.postH,
           background: 'linear-gradient(180deg, #7a4a26 0%, #4f2e15 100%)',
           borderLeft:  '2px solid #2d1809',
           borderRight: '2px solid #2d1809',
@@ -50,8 +61,9 @@ export function ProjectPost({ project }) {
   );
 }
 
-export function ProjectSign({ project, expanded, onToggle, onReadMore }) {
+export function ProjectSign({ project, expanded, onToggle, onReadMore, compact }) {
   const { name, tagline, description, tech, accent, kind, rotate } = project;
+  const S = compact ? SIZES.compact : SIZES.full;
   const F = FRAMES[kind] || FRAMES.billboard;
   const accentBg = `linear-gradient(135deg, ${accent} 0%, ${accent}cc 100%)`;
 
@@ -72,7 +84,7 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore }) {
       onClick={onToggle}
       style={{
         position: 'relative',
-        width: expanded ? 360 : 260,
+        width: expanded ? S.expanded : S.width,
         transition: 'width 0.35s cubic-bezier(.2,.9,.3,1.2), transform 0.35s ease',
         transform: `rotate(${expanded ? 0 : rotate}deg) translateY(${expanded ? '-8px' : '0'})`,
         transformOrigin: 'top center',
@@ -161,7 +173,7 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore }) {
           {/* expandable section */}
           <div
             style={{
-              maxHeight: expanded ? 240 : 0,
+              maxHeight: expanded ? S.expandedPanel : 0,
               opacity: expanded ? 1 : 0,
               overflow: 'hidden',
               transition: 'max-height 0.4s ease, opacity 0.3s ease',

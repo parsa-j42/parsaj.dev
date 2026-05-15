@@ -19,6 +19,8 @@ import Pond from './pond.jsx';
 import { ProjectPost, ProjectSign } from './project-billboard.jsx';
 import CloudsLayer from './clouds-layer.jsx';
 import FogPanel from './fog-panel.jsx';
+import MobilePortfolioScene from './mobile-portfolio-scene.jsx';
+import useIsMobile from '../../hooks/use-is-mobile.js';
 
 // ── Scattered decor positions ──────────────────────────────────────────────
 // All percentages - keep relative so the scene reflows with the viewport.
@@ -99,8 +101,13 @@ function fireflyStyle(i) {
 }
 
 export default function PortfolioScene({ visible }) {
+  const isMobile = useIsMobile();
   const [expandedId, setExpandedId] = React.useState(null);
   const [readMoreId, setReadMoreId] = React.useState(null);
+
+  // Narrow viewports get a completely different layout (vertical journey)
+  // rather than a squeezed-down version of the desktop scene.
+  if (isMobile) return <MobilePortfolioScene visible={visible} />;
 
   return (
     <div

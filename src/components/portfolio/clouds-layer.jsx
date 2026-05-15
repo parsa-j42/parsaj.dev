@@ -15,10 +15,13 @@ const CLOUDS = [
   { id: 'education',    label: 'Education',    accent: '#7c5cc7', top: '9%',  duration: 105, delay: 70, scale: 0.9,  dir: 'ltr' },
 ];
 
-function DriftCloud({ id, label, accent, top, duration, delay, scale, dir, onClick }) {
+// Exported so the mobile scene can reuse it inside its own sky band.
+// `cloudW` / `cloudH` default to the desktop dimensions.
+export function DriftCloud({
+  id, label, accent, top, duration, delay, scale, dir, onClick,
+  cloudW = 240, cloudH = 100,
+}) {
   const [hover, setHover] = React.useState(false);
-  const cloudW = 240;
-  const cloudH = 100;
   const bannerW = Math.max(96, label.length * 11 + 24);
   const bannerH = 28;
   const tilt = (id.charCodeAt(0) % 5) - 2; // a tiny "this banner is hand-tied" lean
