@@ -1,4 +1,4 @@
-// Reusable modal panel — used by both the cloud labels (about/skills/etc) and
+// Reusable modal panel - used by both the cloud labels (about/skills/etc) and
 // the project "Read More" buttons. Same shape, just different `data`:
 //
 //   { label, color, accent, body: ({ Section, P, Tag, Row, Job }) => JSX }

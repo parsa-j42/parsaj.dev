@@ -1,4 +1,4 @@
-// Pixel adventurer — drawn as a 14×20 character grid. Frames cover idle, two
+// Pixel adventurer - drawn as a 14×20 character grid. Frames cover idle, two
 // walk steps, and a "looking up" frame used when a milestone is revealed.
 
 import { PixelGrid } from './sprite.jsx';

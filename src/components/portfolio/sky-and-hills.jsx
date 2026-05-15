@@ -1,7 +1,7 @@
 // Far background: sky gradient, sun haze, four overlapping hill silhouettes,
 // the dirt path winding across the field, and a row of distant tiny trees.
 //
-// Pure dressing — no state, no interactions. Lives behind everything else.
+// Pure dressing - no state, no interactions. Lives behind everything else.
 
 import { PixelTree } from '../pixel/decor.jsx';
 
@@ -66,7 +66,7 @@ export default function SkyAndHills() {
         </div>
       ))}
 
-      {/* foreground grass — pixel-textured via repeating gradients */}
+      {/* foreground grass - pixel-textured via repeating gradients */}
       <div
         style={{
           position: 'absolute',
@@ -82,7 +82,7 @@ export default function SkyAndHills() {
         }}
       />
 
-      {/* dirt path — main band, lighter inner band, sprinkled darker pebbles */}
+      {/* dirt path - main band, lighter inner band, sprinkled darker pebbles */}
       <svg
         width="100%"
         height="100%"

@@ -1,4 +1,4 @@
-// Social icons. Plain SVG paths — no Font Awesome / Lucide / etc, kept tiny on
+// Social icons. Plain SVG paths - no Font Awesome / Lucide / etc, kept tiny on
 // purpose so the bundle stays light.
 
 export const IconGithub = ({ size = 18 }) => (

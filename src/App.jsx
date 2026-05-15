@@ -1,12 +1,12 @@
 // Top-level orchestrator. Drives the four phases:
 //
-//   intro     ─ first ~2.2s — star field is fading in, nothing else
+//   intro     ─ first ~2.2s - star field is fading in, nothing else
 //   spiral    ─ user holds to walk along the spiral; passes 3 milestones
 //   exploding ─ mystery box opens, white flash, portfolio crossfades in
 //   portfolio ─ pastoral landing scene
 //
 // State that needs to live up here (and not in a child) is anything two
-// children touch — phase, walk progress, the rising-element targets, and
+// children touch - phase, walk progress, the rising-element targets, and
 // the white-flash / portfolio cross-fade timing.
 
 import React from 'react';
@@ -169,7 +169,7 @@ export default function App() {
   );
 }
 
-// ── Rising-text payloads — only used here, kept inline ────────────────────
+// ── Rising-text payloads - only used here, kept inline ────────────────────
 
 function RisingNameLabel() {
   return (

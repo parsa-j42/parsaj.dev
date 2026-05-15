@@ -1,4 +1,4 @@
-// PixelGrid — the one true SVG-from-string-grid renderer used by every pixel
+// PixelGrid - the one true SVG-from-string-grid renderer used by every pixel
 // sprite in this project (character, mystery box, trees, mushrooms, etc).
 //
 // `grid` is an array of equal-length strings; each character is a key into
@@ -6,7 +6,7 @@
 // transparent (i.e. nothing is drawn).
 //
 // `extraHeight` lets sprites reserve room for a shadow ellipse passed via
-// children — handy for the character, which has a soft blob underneath.
+// children - handy for the character, which has a soft blob underneath.
 
 export function PixelGrid({
   grid,

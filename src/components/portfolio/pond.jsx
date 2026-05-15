@@ -1,15 +1,15 @@
-// The pond. Genuinely a lot of SVG happening in one place — banks, reflections,
+// The pond. Genuinely a lot of SVG happening in one place - banks, reflections,
 // pebbles, lily pads, a cattail or two, a frog peeking out of the grass. The
 // `wobble()` formula keeps the perimeter "hand-drawn" rather than perfectly
 // elliptical; everything else hangs off that shape via the same clip path.
 //
-// Kept as one component on purpose — every layer is positioned relative to the
+// Kept as one component on purpose - every layer is positioned relative to the
 // pond's wobbly outline, so splitting it would mean threading the same numbers
 // through several files for no real benefit.
 
 import React from 'react';
 
-// Wobble formula reused for every perimeter sample below. Tweak with care —
+// Wobble formula reused for every perimeter sample below. Tweak with care -
 // the lily pads, reeds, and pebbles all assume the same shape.
 const wobble = (a) =>
   1
@@ -83,7 +83,7 @@ export default function Pond({ width = 320, height = 130 }) {
         <rect x={-30} y={-15} width={width + 60} height={height + 30} fill="url(#pondReflect)" />
       </g>
 
-      {/* layered banks — six strokes, each a touch tighter than the last */}
+      {/* layered banks - six strokes, each a touch tighter than the last */}
       <path d={pondPath} fill="none" stroke="rgba(170, 150, 100, 0.18)" strokeWidth="20" strokeLinejoin="round" />
       <path d={pondPath} fill="none" stroke="rgba(178, 158, 110, 0.22)" strokeWidth="14" strokeLinejoin="round" transform="translate(-1, 0.5)" />
       <path d={pondPath} fill="none" stroke="rgba(150, 122, 80, 0.35)"  strokeWidth="9"  strokeLinejoin="round" transform="translate(1, 1)" />
@@ -100,7 +100,7 @@ export default function Pond({ width = 320, height = 130 }) {
         <path d={pondPath} fill="none" stroke="rgba(15, 30, 30, 0.25)" strokeWidth="12" strokeLinejoin="round" transform="translate(-1, -6)" />
       </g>
 
-      {/* sparkle dashes — two passes with different rhythms */}
+      {/* sparkle dashes - two passes with different rhythms */}
       <path d={pondPath} fill="none" stroke="rgba(240, 245, 220, 0.55)" strokeWidth="1.1" strokeDasharray="12 100 7 240 18 300" strokeDashoffset="-30" />
       <path d={pondPath} fill="none" stroke="rgba(220, 235, 200, 0.30)" strokeWidth="0.8" strokeDasharray="5 70 4 200" strokeDashoffset="-150" />
 
@@ -122,7 +122,7 @@ export default function Pond({ width = 320, height = 130 }) {
         );
       })()}
 
-      {/* overhanging grass tufts — three positions around the rim */}
+      {/* overhanging grass tufts - three positions around the rim */}
       {[0.22, 0.48, 0.78].map((t, i) => {
         const a = t * Math.PI * 2 + 0.04;
         const w = wobble(a);
@@ -195,7 +195,7 @@ export default function Pond({ width = 320, height = 130 }) {
         );
       })}
 
-      {/* surface effects — streaks, expanding rings, sparkles — all clipped */}
+      {/* surface effects - streaks, expanding rings, sparkles - all clipped */}
       <g clipPath="url(#pondClip)">
         {Array.from({ length: 6 }).map((_, i) => {
           const y = cy - ry * 0.55 + i * (ry * 0.22);

@@ -1,4 +1,4 @@
-// Landscape sprites — trees, flowers, bushes, mushrooms, rocks, fence, butterfly.
+// Landscape sprites - trees, flowers, bushes, mushrooms, rocks, fence, butterfly.
 // All of them are tiny pixel grids run through <PixelGrid>. The fence and the
 // butterfly are slightly different shapes (drawn with explicit rects) since
 // they don't fit a uniform grid the same way.
@@ -191,7 +191,7 @@ export function Butterfly({ color1 = '#e85a8c', color2 = '#a55ae8', scale = 3 })
 }
 
 // ── Pixel cloud (used by the drifting CloudsLayer) ───────────────────────────
-// Five overlapping ellipses. Not a strict grid — the bumpy "cloud" silhouette
+// Five overlapping ellipses. Not a strict grid - the bumpy "cloud" silhouette
 // reads better with smooth ovals than with stair-stepped pixels.
 
 export function PixelCloud({ width = 220, height = 90, hover = false }) {

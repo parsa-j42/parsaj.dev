@@ -4,7 +4,7 @@
 // passes per star, an SVG tree of that size kills frame rate on mid-range
 // laptops. Canvas batches it into one paint per frame.
 //
-// The mouse acts as a moving "gravity well" — depending on `interaction`, stars
+// The mouse acts as a moving "gravity well" - depending on `interaction`, stars
 // either pull toward it, push away from it, or swirl around it. On `exploding`,
 // the field is blasted outward from the screen center over ~1s, then fades.
 
@@ -122,7 +122,7 @@ export default function GravityGrid({ exploding = false, fadeOut = false, tweaks
       sm.x += (m.x - sm.x) * 0.12;
       sm.y += (m.y - sm.y) * 0.12;
 
-      // Loading flicker — a deliberately uneven fade-in for the first ~3s.
+      // Loading flicker - a deliberately uneven fade-in for the first ~3s.
       let opacity;
       if (t < 0.4) opacity = 0;
       else {
@@ -188,7 +188,7 @@ export default function GravityGrid({ exploding = false, fadeOut = false, tweaks
         }
       }
 
-      // Soft halo around the cursor — colored by interaction mode.
+      // Soft halo around the cursor - colored by interaction mode.
       if (wellActive > 0 && opacity > 0.05) {
         const grad = ctx.createRadialGradient(sm.x, sm.y, 0, sm.x, sm.y, 280);
         const tone =
@@ -202,7 +202,7 @@ export default function GravityGrid({ exploding = false, fadeOut = false, tweaks
         ctx.fillRect(0, 0, W, H);
       }
 
-      // Stars — three passes per star: wide halo, mid glow, bright core.
+      // Stars - three passes per star: wide halo, mid glow, bright core.
       const palette2 = STAR_PALETTES[tw.palette] || STAR_PALETTES.cosmic;
       const stars = state.current.stars;
       const explodeBlast =
@@ -260,7 +260,7 @@ export default function GravityGrid({ exploding = false, fadeOut = false, tweaks
         const color = palette2[s.colorIdx % palette2.length];
         const alpha = Math.max(0, Math.min(1, tw_ * opacity * (1 - explodeT * 0.6)));
 
-        // wide soft halo — the "blur" illusion
+        // wide soft halo - the "blur" illusion
         ctx.fillStyle = hexWithAlpha(color, alpha * 0.28 * glowBoost);
         ctx.beginPath();
         ctx.arc(px, py, size * 8, 0, Math.PI * 2);

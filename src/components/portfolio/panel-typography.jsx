@@ -2,7 +2,7 @@
 // PROJECT_DETAILS entry. Centralizing them here means data files stay free of
 // inline styling and look more like prose.
 //
-// All five (Section, P, Tag, Row, Job) are factory functions — they take the
+// All five (Section, P, Tag, Row, Job) are factory functions - they take the
 // panel's `accent` color and return styled components keyed to that accent.
 
 import React from 'react';

@@ -3,7 +3,7 @@
 //                    raises its post above neighbouring signs)
 //   - <ProjectSign>  the actual interactive sign (clicks to expand + read more)
 //
-// `kind` selects one of the five "frames" — each frame has a slightly different
+// `kind` selects one of the five "frames" - each frame has a slightly different
 // header color and shadow so the five projects feel like distinct objects in
 // the world rather than a uniform UI list.
 
@@ -91,7 +91,7 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore }) {
           imageRendering: 'pixelated',
         }}
       >
-        {/* header bar — title + accent diamond */}
+        {/* header bar - title + accent diamond */}
         <div
           style={{
             background: F.head,
@@ -120,7 +120,7 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore }) {
           />
         </div>
 
-        {/* placeholder "project shot" — diagonal stripes on accent gradient */}
+        {/* placeholder "project shot" - diagonal stripes on accent gradient */}
         <div
           style={{
             height: 100,
@@ -191,7 +191,7 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore }) {
             </div>
 
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', position: 'relative' }}>
-              {/* locked Visit button — shows toast on click */}
+              {/* locked Visit button - shows toast on click */}
               <button
                 type="button"
                 onClick={onLockedClick}

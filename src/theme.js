@@ -1,5 +1,5 @@
 // Tiny shared tokens. Most of the styling here is inline (and dynamic), so this
-// file only collects the strings that are repeated literally everywhere — fonts
+// file only collects the strings that are repeated literally everywhere - fonts
 // and the wood/paper palette used by the various pixel-style UI surfaces.
 
 export const FONTS = {
@@ -7,7 +7,7 @@ export const FONTS = {
   mono: "'JetBrains Mono', monospace",
 };
 
-// "Wood + paper" — the warm palette used by signs, banners, and panels.
+// "Wood + paper" - the warm palette used by signs, banners, and panels.
 export const INK = {
   paper: '#f4ebd1',
   paperLight: '#fdf4d4',

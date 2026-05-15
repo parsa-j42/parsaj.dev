@@ -21,7 +21,7 @@ import CloudsLayer from './clouds-layer.jsx';
 import FogPanel from './fog-panel.jsx';
 
 // ── Scattered decor positions ──────────────────────────────────────────────
-// All percentages — keep relative so the scene reflows with the viewport.
+// All percentages - keep relative so the scene reflows with the viewport.
 
 const FLOWERS = [
   ['3%', '70%', '#e85a8c'], ['5%', '78%', '#ffd14a'], ['2%', '86%', '#ffffff'],

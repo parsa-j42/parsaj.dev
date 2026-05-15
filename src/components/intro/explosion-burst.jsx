@@ -1,5 +1,5 @@
 // Particle-burst that fires when the mystery box opens. 36 little squares
-// shoot outward + a soft radial flash fades over ~1.2s. Self-contained — calls
+// shoot outward + a soft radial flash fades over ~1.2s. Self-contained - calls
 // `onDone` once when the animation lands.
 
 import React from 'react';

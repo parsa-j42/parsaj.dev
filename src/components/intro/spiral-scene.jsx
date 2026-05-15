@@ -36,7 +36,7 @@ export default function SpiralScene({
     return () => window.removeEventListener('resize', r);
   }, []);
 
-  // Geometry — sample the spiral into points, build cumulative arc length, then
+  // Geometry - sample the spiral into points, build cumulative arc length, then
   // place star markers along it at fixed spacing.
   const { points, cumLen, totalLen, stars, endPoint } = React.useMemo(() => {
     const cx = dims.w / 2;
@@ -120,7 +120,7 @@ export default function SpiralScene({
   const progressRef = React.useRef(progress);
   React.useEffect(() => { progressRef.current = progress; }, [progress]);
 
-  // Walk loop — only ticks while the user holds the mouse/touch down.
+  // Walk loop - only ticks while the user holds the mouse/touch down.
   React.useEffect(() => {
     if (!holding || !active) return;
     let raf;
@@ -135,7 +135,7 @@ export default function SpiralScene({
     return () => cancelAnimationFrame(raf);
   }, [holding, active, setProgress, walkSpeed]);
 
-  // Milestone triggers — fire once each, in order.
+  // Milestone triggers - fire once each, in order.
   const triggeredRef = React.useRef({ name: false, links: false, box: false });
   React.useEffect(() => {
     const charPos = positionAt(progress);
@@ -190,7 +190,7 @@ export default function SpiralScene({
     return () => clearInterval(iv);
   }, [holding]);
 
-  // Star canvas — re-drawn each frame so star twinkle reads cleanly.
+  // Star canvas - re-drawn each frame so star twinkle reads cleanly.
   // Stars ahead of the walker are full opacity; ones just behind fade out
   // over 60px; the rest are skipped.
   React.useEffect(() => {

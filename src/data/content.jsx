@@ -5,7 +5,7 @@
 //
 // `body` receives small render helpers from panel-typography.jsx so the prose
 // doesn't have to repeat all the inline styling. Keep the entries as plain
-// data — no hooks, no state — they're called inside FogPanel.
+// data - no hooks, no state - they're called inside FogPanel.
 
 import React from 'react';
 
@@ -27,14 +27,14 @@ export const CLOUD_CONTENT = {
         <P>
           I'm a full-stack software developer with a focus on React, TypeScript, and Node.js,
           and real experience shipping production software on AWS. I enjoy building things
-          that actually get used — whether that's an AI-powered platform for teachers, a
+          that actually get used - whether that's an AI-powered platform for teachers, a
           team-matching app for students, or an accessibility tool built with university researchers.
         </P>
         <P>
           Most recently I've been working as a frontend developer at HoneyBeeLogic, building an
           AI-powered K-12 lesson planning platform. Before that I completed my Software Development
           diploma at SAIT, where my capstone project had me engineering an entire full-stack
-          application on my own — from database schema to cloud deployment.
+          application on my own - from database schema to cloud deployment.
         </P>
         <P>
           I'm strongest in TypeScript, React, NestJS, and PostgreSQL, and I've picked up new stacks
@@ -54,13 +54,13 @@ export const CLOUD_CONTENT = {
         <Job
           company="HoneyBeeLogic"
           role="Frontend Software Developer"
-          when="May 2024 — Present · 2 yrs 1 mo"
+          when="May 2024 - Present · 2 yrs 1 mo"
           where="Calgary, Alberta, Canada"
         >
           <P>
             Frontend Developer on an AI-powered K-12 educational platform built with React,
             TypeScript, Vite, and Mantine UI. Led the full frontend development of <strong>CaseCraft</strong>,
-            a tool that transforms case-study creation for educators — supporting customized
+            a tool that transforms case-study creation for educators - supporting customized
             scenario generation for K-12 and professional learning. Built an intuitive UI, integrated
             AI for scenario generation, implemented complex state management, and delivered
             multi-format document export (PDF, Word, plain text).
@@ -68,7 +68,7 @@ export const CLOUD_CONTENT = {
           <P>
             Also contributed to <strong>Ally</strong>, which generates personalized learning plans
             based on curriculum outcomes, and helped establish the core frontend architecture for
-            the broader HoneyBeeLogic toolkit — including AWS Cognito authentication and shared
+            the broader HoneyBeeLogic toolkit - including AWS Cognito authentication and shared
             component structure across multiple AI-powered mini-apps.
           </P>
         </Job>
@@ -76,7 +76,7 @@ export const CLOUD_CONTENT = {
         <Job
           company="Ink, Toner & Moore"
           role="Software Developer"
-          when="June 2025 — October 2025 · 5 mo"
+          when="June 2025 - October 2025 · 5 mo"
           where="Calgary, AB"
         >
           <P>
@@ -92,7 +92,7 @@ export const CLOUD_CONTENT = {
             system; and a quick-access directory.
           </P>
           <P>
-            Hosted on GitHub Pages with Firebase as the backend — a completely free yet secure and
+            Hosted on GitHub Pages with Firebase as the backend - a completely free yet secure and
             fully functional solution. React, TypeScript, Vite, Tailwind CSS, React Router, React
             Hook Form, Zod.
           </P>
@@ -101,12 +101,12 @@ export const CLOUD_CONTENT = {
         <Job
           company="Southern Alberta Institute of Technology (SAIT)"
           role="Full-Stack Engineer · Capstone"
-          when="January 2025 — April 2025 · 4 mo"
+          when="January 2025 - April 2025 · 4 mo"
           where="Calgary, AB"
         >
           <P>
             Sole engineer on a 4-month SAIT capstone alongside a team of UI/UX and graphic designers.
-            Built <strong>TeamUp</strong> from the ground up — a platform helping students find
+            Built <strong>TeamUp</strong> from the ground up - a platform helping students find
             teammates and mentors from other majors for personal projects.
           </P>
           <P>
@@ -117,7 +117,7 @@ export const CLOUD_CONTENT = {
           </P>
           <P>
             On the frontend, faithfully translated my teammates' Figma designs into a production-ready
-            React app. Integrated Google Gemini API for AI-powered skill matching — intentionally flexible
+            React app. Integrated Google Gemini API for AI-powered skill matching - intentionally flexible
             so students from any major could describe their skills freely.
           </P>
           <P>
@@ -129,13 +129,13 @@ export const CLOUD_CONTENT = {
         <Job
           company="University of Calgary"
           role="Mobile Application Developer"
-          when="July 2022 — August 2022 · 2 mo"
+          when="July 2022 - August 2022 · 2 mo"
           where="Calgary, AB"
         >
           <P>
             Volunteered full-time under Dr. Far at the University of Calgary to build an
             accessibility-focused sidewalk navigation app for iOS and Android using React Native.
-            Worked across both frontend and backend — Google Maps API integration, interactive
+            Worked across both frontend and backend - Google Maps API integration, interactive
             pin-dropping UI for mapping sidewalk routes, Firebase authentication, and database
             connectivity.
           </P>
@@ -144,12 +144,12 @@ export const CLOUD_CONTENT = {
         <Job
           company="Meyar Keyfiat Co."
           role="Software Developer"
-          when="July 2021 — December 2021 · 6 mo"
+          when="July 2021 - December 2021 · 6 mo"
           where="Tehran, Iran"
         >
           <P>
             Developed a web application using Django + Python that let staff from different
-            locations save and view real-time wagon inspection data. Focused on the backend —
+            locations save and view real-time wagon inspection data. Focused on the backend -
             designing a scalable schema, optimizing queries, and rendering them efficiently.
           </P>
         </Job>
@@ -180,7 +180,7 @@ export const CLOUD_CONTENT = {
         </Row>
         <Section title="Cloud, DevOps & Tools" />
         <Row>
-          {['AWS — EC2', 'AWS — RDS', 'AWS — Lambda', 'AWS — Amplify', 'AWS — Cognito',
+          {['AWS - EC2', 'AWS - RDS', 'AWS - Lambda', 'AWS - Amplify', 'AWS - Cognito',
             'Docker', 'CI/CD', 'Git', 'GitHub', 'Swagger', 'Linux', 'Figma']
             .map((t) => <Tag key={t}>{t}</Tag>)}
         </Row>
@@ -199,7 +199,7 @@ export const CLOUD_CONTENT = {
         <Section title="CompTIA Network+" />
         <P>Networking concepts, infrastructure, operations, security, and troubleshooting.</P>
         <Section title="Web Design" />
-        <P>HTML, CSS, Dreamweaver, Bootstrap, JavaScript, and jQuery — full client-side web build.</P>
+        <P>HTML, CSS, Dreamweaver, Bootstrap, JavaScript, and jQuery - full client-side web build.</P>
       </>
     ),
   },
@@ -211,15 +211,15 @@ export const CLOUD_CONTENT = {
     body: ({ Section, P }) => (
       <>
         <Section title="Southern Alberta Institute of Technology (SAIT)" />
-        <P style={{ marginBottom: 4 }}><strong>Diploma — Software Development</strong></P>
-        <P style={{ fontSize: 11, color: '#8a6a8c', marginBottom: 16 }}>September 2023 — April 2025 · Calgary</P>
+        <P style={{ marginBottom: 4 }}><strong>Diploma - Software Development</strong></P>
+        <P style={{ fontSize: 11, color: '#8a6a8c', marginBottom: 16 }}>September 2023 - April 2025 · Calgary</P>
         <P>
           Two-year diploma covering full-stack web development, software architecture, databases,
           networking, mobile development, and a 4-month capstone shipped on AWS.
         </P>
         <Section title="Activities" />
-        <P><strong>Member</strong> — SAIT Student Code Club (SSC), 2025 · Calgary</P>
-        <P><strong>Youth Coding Mentor</strong> — Calgary Public Library Code Club, 2022 · Calgary</P>
+        <P><strong>Member</strong> - SAIT Student Code Club (SSC), 2025 · Calgary</P>
+        <P><strong>Youth Coding Mentor</strong> - Calgary Public Library Code Club, 2022 · Calgary</P>
       </>
     ),
   },
@@ -428,12 +428,12 @@ export const PROJECT_DETAILS = {
         <Section title="Overview" />
         <P>
           The site you're reading right now. I wanted the homepage itself to be a project, not
-          just a wrapper around one — so it borrows a bit from Stardew Valley and the weirder
+          just a wrapper around one - so it borrows a bit from Stardew Valley and the weirder
           corners of the early web instead of looking like another templated dev portfolio.
         </P>
         <Section title="What's In It" />
         <P>
-          The opening is a gravity-warped star field on canvas — the cursor pulls, pushes, or
+          The opening is a gravity-warped star field on canvas - the cursor pulls, pushes, or
           swirls the stars depending on the mode. The spiral transition is a sampled path you
           actually walk along, not a CSS tween. The landing scene is a small pastoral world:
           project billboards you can flip open, drifting clouds with hanging info banners, a pond
