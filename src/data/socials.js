@@ -4,7 +4,7 @@
 import {
   IconGithub,
   IconLinkedin,
-  // IconX,       // bring back when there's something worth linking to
+  IconX,       
   // IconResume,
   IconEmail,
 } from '../components/pixel/social-icons.jsx';
@@ -12,7 +12,7 @@ import {
 export const SOCIALS = [
   { id: 'github',   label: 'GitHub',   url: 'https://github.com/parsa-j42',          icon: IconGithub },
   { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/parsa-j42', icon: IconLinkedin },
-  // { id: 'x',      label: 'X',      url: '#', icon: IconX },
+  { id: 'x',        label: 'X',        url: 'https://x.com/parsaj_dev',              icon: IconX },
   // { id: 'resume', label: 'Resume', url: '#', icon: IconResume },
   { id: 'email',    label: 'Email',    url: 'mailto:hi@parsaj.dev',                  icon: IconEmail },
 ];

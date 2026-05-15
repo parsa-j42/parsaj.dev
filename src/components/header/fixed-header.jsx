@@ -112,7 +112,7 @@ function SocialLink({ s, linkColor, linkBg, linkBorder }) {
         style={{
           display: 'inline-flex',
           alignItems: 'center',
-          maxWidth: hover ? 320 : 0,
+          maxWidth: hover ? 200 : 0,
           marginLeft: hover ? 8 : 0,
           paddingLeft: hover ? 8 : 0,
           borderLeft: hover ? `1px solid ${linkBorder}` : '1px solid transparent',
@@ -123,8 +123,8 @@ function SocialLink({ s, linkColor, linkBg, linkBorder }) {
           textTransform: 'lowercase',
           opacity: hover ? 0.75 : 0,
           transition: hover
-            ? 'max-width 1.15s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.9s ease 0.15s, margin-left 1.15s ease, padding-left 1.15s ease, border-color 0.9s ease'
-            : 'max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-left 0.45s ease, padding-left 0.45s ease, border-color 0.3s ease',
+            ? 'max-width 0.7s linear, opacity 0.6s ease 0.1s, margin-left 0.7s linear, padding-left 0.7s linear, border-color 0.6s ease'
+            : 'max-width 0.35s linear, opacity 0.25s ease, margin-left 0.35s linear, padding-left 0.35s linear, border-color 0.25s ease',
         }}
       >
         {url}
