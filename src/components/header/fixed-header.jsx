@@ -1,8 +1,17 @@
 // Pinned name + social bar. Lives at the top of the screen once the rising
 // animations land. Its color flips dark-on-sky once the portfolio scene is up.
 
+import { useState } from 'react';
 import { SOCIALS } from '../../data/socials.js';
 import { FONTS } from '../../theme.js';
+
+function displayUrl(url) {
+  return url
+    .replace(/^mailto:/, '')
+    .replace(/^https?:\/\//, '')
+    .replace(/^www\./, '')
+    .replace(/\/$/, '');
+}
 
 export default function FixedHeader({ namePinned, linksPinned, inPortfolio }) {
   const onSky = inPortfolio;
@@ -59,38 +68,67 @@ export default function FixedHeader({ namePinned, linksPinned, inPortfolio }) {
           gap: 8,
         }}
       >
-        {SOCIALS.map((s) => {
-          const Ic = s.icon;
-          return (
-            <a
-              key={s.id}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                padding: '10px 14px',
-                color: linkColor,
-                background: linkBg,
-                border: `1px solid ${linkBorder}`,
-                borderRadius: 8,
-                textDecoration: 'none',
-                fontFamily: FONTS.mono,
-                fontSize: 12,
-                letterSpacing: '0.1em',
-                backdropFilter: 'blur(8px)',
-                transition: 'transform 0.2s, background 0.2s',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'translateY(-2px)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
-            >
-              <Ic /> <span>{s.label}</span>
-            </a>
-          );
-        })}
+        {SOCIALS.map((s) => <SocialLink key={s.id} s={s} linkColor={linkColor} linkBg={linkBg} linkBorder={linkBorder} />)}
       </div>
     </>
+  );
+}
+
+function SocialLink({ s, linkColor, linkBg, linkBorder }) {
+  const [hover, setHover] = useState(false);
+  const Ic = s.icon;
+  const url = displayUrl(s.url);
+
+  return (
+    <a
+      href={s.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 8,
+        padding: '10px 14px',
+        color: linkColor,
+        background: linkBg,
+        border: `1px solid ${linkBorder}`,
+        borderRadius: 8,
+        textDecoration: 'none',
+        fontFamily: FONTS.mono,
+        fontSize: 12,
+        letterSpacing: '0.1em',
+        backdropFilter: 'blur(8px)',
+        transform: hover ? 'translateY(-2px)' : 'translateY(0)',
+        transition: 'transform 0.3s ease, background 0.3s ease',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+      }}
+    >
+      <Ic />
+      <span style={{ display: 'inline-block' }}>{s.label}</span>
+      <span
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          maxWidth: hover ? 320 : 0,
+          marginLeft: hover ? 8 : 0,
+          paddingLeft: hover ? 8 : 0,
+          borderLeft: hover ? `1px solid ${linkBorder}` : '1px solid transparent',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          fontSize: 11.5,
+          letterSpacing: '0.04em',
+          textTransform: 'lowercase',
+          opacity: hover ? 0.75 : 0,
+          transition: hover
+            ? 'max-width 1.15s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.9s ease 0.15s, margin-left 1.15s ease, padding-left 1.15s ease, border-color 0.9s ease'
+            : 'max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin-left 0.45s ease, padding-left 0.45s ease, border-color 0.3s ease',
+        }}
+      >
+        {url}
+      </span>
+    </a>
   );
 }
