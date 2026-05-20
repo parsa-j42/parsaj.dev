@@ -428,7 +428,7 @@ export const PROJECT_DETAILS = {
         <Section title="Overview" />
         <P>
           The site you're reading right now. I wanted the homepage itself to be a project, not
-          just a wrapper around one - so it borrows a bit from Stardew Valley and the weirder
+          just a wrapper around one; something that's mine, and creative - so it borrows a bit from Stardew Valley and the weirder
           corners of the early web instead of looking like another templated dev portfolio.
         </P>
         <Section title="What's In It" />
