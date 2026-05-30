@@ -94,7 +94,7 @@ export const CLOUD_CONTENT = {
           <P>
             Hosted on GitHub Pages with Firebase as the backend - a completely free yet secure and
             fully functional solution. React, TypeScript, Vite, Tailwind CSS, React Router, React
-            Hook Form, Zod.
+            Hook Form.
           </P>
         </Job>
 
@@ -170,7 +170,7 @@ export const CLOUD_CONTENT = {
         </Row>
         <Section title="Frontend" />
         <Row>
-          {['React', 'React Native', 'Vite', 'Mantine UI', 'HTML', 'CSS', 'Tailwind', 'React Hook Form', 'Zod']
+          {['React', 'React Native', 'Vite', 'Mantine UI', 'HTML', 'CSS', 'Tailwind', 'React Hook Form']
             .map((t) => <Tag key={t}>{t}</Tag>)}
         </Row>
         <Section title="Backend" />
@@ -268,7 +268,15 @@ export const PROJECT_DETAILS = {
         <P>
           The full stack runs on AWS: EC2 (Red Hat Linux) for the NestJS backend, RDS for
           PostgreSQL, and Amplify for the React frontend. I also configured the domain and DNS to
-          make the application publicly accessible.
+          make the application publicly accessible. It is now live at{' '}
+          <a
+            href="https://teamup.parsaj.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#e98a3a', fontWeight: 700 }}
+          >
+            teamup.parsaj.dev
+          </a>.
         </P>
         <Section title="Tech" />
         <Row>
@@ -306,12 +314,12 @@ export const PROJECT_DETAILS = {
           Hosted on GitHub Pages with Firebase as the backend, which kept the whole thing
           completely free to run while still being secure and fully functional. Built with React,
           TypeScript, and Vite, styled with Tailwind CSS, routed with React Router, and using
-          React Hook Form with Zod for validation.
+          React Hook Form with validation.
         </P>
         <Section title="Tech" />
         <Row>
           {['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router', 'React Hook Form',
-            'Zod', 'Firebase', 'GitHub Pages'].map((t) => <Tag key={t}>{t}</Tag>)}
+           'Firebase', 'GitHub Pages'].map((t) => <Tag key={t}>{t}</Tag>)}
         </Row>
       </>
     ),

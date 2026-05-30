@@ -9,7 +9,7 @@ export const PROJECTS = [
     tagline: 'Cross-disciplinary team matching for students',
     description:
       'A platform for students to find teammates and mentors from outside their own major, built solo as a SAIT capstone in 4 months. NestJS and PostgreSQL backend, a React frontend translated from a team of designers’ Figma, AI-powered skill matching via Google Gemini, and a full deployment on AWS.',
-    link: '#',
+    link: 'https://teamup.parsaj.dev',
     tech: ['React', 'TypeScript', 'NestJS', 'PostgreSQL', 'AWS', 'Gemini'],
     accent: '#e98a3a',
     pos: { left: '7%', top: '36%' },

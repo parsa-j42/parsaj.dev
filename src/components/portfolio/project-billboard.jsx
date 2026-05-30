@@ -62,10 +62,11 @@ export function ProjectPost({ project, compact }) {
 }
 
 export function ProjectSign({ project, expanded, onToggle, onReadMore, compact }) {
-  const { name, tagline, description, tech, accent, kind, rotate } = project;
+  const { name, tagline, description, tech, accent, kind, rotate, link } = project;
   const S = compact ? SIZES.compact : SIZES.full;
   const F = FRAMES[kind] || FRAMES.billboard;
   const accentBg = `linear-gradient(135deg, ${accent} 0%, ${accent}cc 100%)`;
+  const isLive = link && link !== '#';
 
   // small "Coming soon" toast for the locked Visit button.
   const [showLockedMsg, setShowLockedMsg] = React.useState(false);
@@ -203,38 +204,74 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore, compact }
             </div>
 
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center', position: 'relative' }}>
-              {/* locked Visit button - shows toast on click */}
-              <button
-                type="button"
-                onClick={onLockedClick}
-                aria-label={`Visit ${name} (locked, coming soon)`}
-                title="Coming soon"
-                style={{
-                  position: 'relative',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 6,
-                  background: '#8a8a8a',
-                  backgroundImage: 'repeating-linear-gradient(135deg, rgba(0,0,0,0.18) 0 4px, rgba(255,255,255,0.06) 4px 8px)',
-                  color: '#e8e8e8',
-                  fontFamily: FONTS.pixel,
-                  fontSize: 9,
-                  padding: '8px 12px',
-                  border: '2px solid rgba(0,0,0,0.45)',
-                  boxShadow: '0 3px 0 rgba(0,0,0,0.35)',
-                  letterSpacing: '0.5px',
-                  cursor: 'not-allowed',
-                  textShadow: '1px 1px 0 rgba(0,0,0,0.45)',
-                  overflow: 'hidden',
-                }}
-              >
-                <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true" style={{ display: 'block' }}>
-                  <path d="M2 5 V3.5 a3 3 0 0 1 6 0 V5" fill="none" stroke="#1a1a1a" strokeWidth="1.4" />
-                  <rect x="1" y="5" width="8" height="6.5" rx="1" fill="#d9d9d9" stroke="#1a1a1a" strokeWidth="1" />
-                  <rect x="4.4" y="7.2" width="1.2" height="2.6" fill="#1a1a1a" />
-                </svg>
-                VISIT
-              </button>
+              {isLive ? (
+                /* live Visit link - opens the project in a new tab */
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  aria-label={`Visit ${name}`}
+                  title={`Visit ${name}`}
+                  style={{
+                    position: 'relative',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    background: accentBg,
+                    color: '#fff8e1',
+                    fontFamily: FONTS.pixel,
+                    fontSize: 9,
+                    padding: '8px 12px',
+                    border: '2px solid rgba(0,0,0,0.45)',
+                    boxShadow: '0 3px 0 rgba(0,0,0,0.35)',
+                    letterSpacing: '0.5px',
+                    cursor: 'pointer',
+                    textDecoration: 'none',
+                    textShadow: '1px 1px 0 rgba(0,0,0,0.35)',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style={{ display: 'block' }}>
+                    <path d="M4 2 H10 V8" fill="none" stroke="#fff8e1" strokeWidth="1.6" />
+                    <path d="M10 2 L3 9" fill="none" stroke="#fff8e1" strokeWidth="1.6" />
+                  </svg>
+                  VISIT
+                </a>
+              ) : (
+                /* locked Visit button - shows toast on click */
+                <button
+                  type="button"
+                  onClick={onLockedClick}
+                  aria-label={`Visit ${name} (locked, coming soon)`}
+                  title="Coming soon"
+                  style={{
+                    position: 'relative',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    background: '#8a8a8a',
+                    backgroundImage: 'repeating-linear-gradient(135deg, rgba(0,0,0,0.18) 0 4px, rgba(255,255,255,0.06) 4px 8px)',
+                    color: '#e8e8e8',
+                    fontFamily: FONTS.pixel,
+                    fontSize: 9,
+                    padding: '8px 12px',
+                    border: '2px solid rgba(0,0,0,0.45)',
+                    boxShadow: '0 3px 0 rgba(0,0,0,0.35)',
+                    letterSpacing: '0.5px',
+                    cursor: 'not-allowed',
+                    textShadow: '1px 1px 0 rgba(0,0,0,0.45)',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true" style={{ display: 'block' }}>
+                    <path d="M2 5 V3.5 a3 3 0 0 1 6 0 V5" fill="none" stroke="#1a1a1a" strokeWidth="1.4" />
+                    <rect x="1" y="5" width="8" height="6.5" rx="1" fill="#d9d9d9" stroke="#1a1a1a" strokeWidth="1" />
+                    <rect x="4.4" y="7.2" width="1.2" height="2.6" fill="#1a1a1a" />
+                  </svg>
+                  VISIT
+                </button>
+              )}
 
               <button
                 type="button"
