@@ -8,5 +8,5 @@ export const VISUALS = {
   interaction: 'repel', // attract | repel | swirl
   showGrid: false,
   twinkle: true,
-  walkSpeed: 0.085,
+  walkSpeed: 0.14,
 };

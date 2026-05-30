@@ -62,7 +62,7 @@ export function ProjectPost({ project, compact }) {
 }
 
 export function ProjectSign({ project, expanded, onToggle, onReadMore, compact }) {
-  const { name, tagline, description, tech, accent, kind, rotate, link } = project;
+  const { name, tagline, description, tech, accent, kind, rotate, link, shot } = project;
   const S = compact ? SIZES.compact : SIZES.full;
   const F = FRAMES[kind] || FRAMES.billboard;
   const accentBg = `linear-gradient(135deg, ${accent} 0%, ${accent}cc 100%)`;
@@ -133,7 +133,8 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore, compact }
           />
         </div>
 
-        {/* placeholder "project shot" - diagonal stripes on accent gradient */}
+        {/* "project shot" - real screenshot if one is set, otherwise a
+            placeholder of diagonal stripes on the accent gradient */}
         <div
           style={{
             height: 100,
@@ -143,27 +144,45 @@ export function ProjectSign({ project, expanded, onToggle, onReadMore, compact }
             borderBottom: '2px solid rgba(0,0,0,0.18)',
           }}
         >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0 8px, transparent 8px 16px)',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 8,
-              left: 10,
-              fontSize: 9,
-              color: 'rgba(255,255,255,0.85)',
-              fontFamily: FONTS.mono,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-            }}
-          >
-            [ project shot ]
-          </div>
+          {shot ? (
+            <img
+              src={shot}
+              alt={`${name} screenshot`}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'top',
+                imageRendering: 'auto',
+              }}
+            />
+          ) : (
+            <>
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0 8px, transparent 8px 16px)',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: 8,
+                  left: 10,
+                  fontSize: 9,
+                  color: 'rgba(255,255,255,0.85)',
+                  fontFamily: FONTS.mono,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                [ project shot ]
+              </div>
+            </>
+          )}
         </div>
 
         <div style={{ padding: '12px 14px 14px 14px' }}>

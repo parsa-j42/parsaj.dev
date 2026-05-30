@@ -2,6 +2,8 @@
 // matching read-more panel in ./content.js (so the project's "color" stays
 // consistent between billboard and modal).
 
+import teamupShot from '../assets/projects/teamup.png';
+
 export const PROJECTS = [
   {
     id: 'teamup',
@@ -10,6 +12,7 @@ export const PROJECTS = [
     description:
       'A platform for students to find teammates and mentors from outside their own major, built solo as a SAIT capstone in 4 months. NestJS and PostgreSQL backend, a React frontend translated from a team of designers’ Figma, AI-powered skill matching via Google Gemini, and a full deployment on AWS.',
     link: 'https://teamup.parsaj.dev',
+    shot: teamupShot,
     tech: ['React', 'TypeScript', 'NestJS', 'PostgreSQL', 'AWS', 'Gemini'],
     accent: '#e98a3a',
     pos: { left: '7%', top: '36%' },
