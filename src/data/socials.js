@@ -10,8 +10,8 @@ import {
 } from '../components/pixel/social-icons.jsx';
 
 export const SOCIALS = [
-  { id: 'github',   label: 'GitHub',   url: 'https://github.com/parsa-j42',          icon: IconGithub },
-  { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/parsa-j42', icon: IconLinkedin },
+  { id: 'github',   label: 'GitHub',   url: 'https://github.com/parsaj-dev',          icon: IconGithub },
+  { id: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/parsaj-dev', icon: IconLinkedin },
   { id: 'x',        label: 'X',        url: 'https://x.com/parsaj_dev',              icon: IconX },
   // { id: 'resume', label: 'Resume', url: '#', icon: IconResume },
   { id: 'email',    label: 'Email',    url: 'mailto:hi@parsaj.dev',                  icon: IconEmail },
